@@ -2,19 +2,20 @@ import axios from "axios";
 import React, { useState } from "react";
 
 
-const Button = () => {
+const Button = ({props}) => {
 
     const [status, setStatus] = useState("None");
 
-    const apiCall = () => {
+    const apiCall = (e) => {
+        e.preventDefault();
         axios.post("https://webhooks.workato.com/webhooks/rest/d726cfa6-fc5f-49c4-beb2-45e59c97b5e3/new-employee", 
             
             {
-                "Firstname": "Kam Ming Simon",
-                "Lastname" : "Wong",
-                "SSN": "626-88-3483",
-                "Birthdate": "2022-10-31",
-                "Email": "skwongus@gmail.com"
+                "Firstname": props.firstname,
+                "Lastname" : props.surname,
+                "SSN": props.ssn,
+                "Birthdate": props.birthdate,
+                "Email": props.email
             }
         ).then((res) => {
             console.log(res)
@@ -24,11 +25,19 @@ const Button = () => {
                 setStatus("Failed to create employee.")
             }
         })
+
+        console.log({
+            "Firstname": props.firstname,
+            "Lastname" : props.surname,
+            "SSN": props.ssn,
+            "Birthdate": props.birthdate,
+            "Email": props.email
+        })
             
     }
 
     return <>
-        <button onClick={apiCall}> Create New Employee </button>
+        <button onClick={(e) => apiCall(e)}> Create New Employee </button>
         <p>Api Status : {status}</p>
     </>
 }
