@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 
-const Button = ({props}) => {
+const CreateButton = ({props}) => {
 
     const [status, setStatus] = useState("None");
 
@@ -17,6 +17,7 @@ const Button = ({props}) => {
                 "Birthdate": props.birthdate,
                 "Email": props.email
             }
+            
         ).then((res) => {
             console.log(res)
             if (res.data.status === "ok") {
@@ -32,8 +33,7 @@ const Button = ({props}) => {
             "SSN": props.ssn,
             "Birthdate": props.birthdate,
             "Email": props.email
-        })
-            
+        })       
     }
 
     return <>
@@ -42,6 +42,4 @@ const Button = ({props}) => {
     </>
 }
 
-
-
-export default Button;
+export default CreateButton;
