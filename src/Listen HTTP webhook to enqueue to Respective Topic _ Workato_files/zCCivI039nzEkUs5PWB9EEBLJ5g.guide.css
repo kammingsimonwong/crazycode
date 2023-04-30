@@ -1,0 +1,8 @@
+#pendo-g-fqDcEpJW50MhNj9s1mXCarMKk8U {
+  /* top-left, top-right curved border radius */
+}
+#pendo-g-fqDcEpJW50MhNj9s1mXCarMKk8U img,
+#pendo-g-fqDcEpJW50MhNj9s1mXCarMKk8U div {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}

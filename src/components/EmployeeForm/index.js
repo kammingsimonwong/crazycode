@@ -12,18 +12,24 @@ const EmployeeForm = () => {
         birthdate: '',
         email: '',
     };
+  const initalStatusValue = '<p><b>Api call status is reset. </b></p>';
 
-    
   const [formValues, setFormValues] = useState(initialFormValues);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
+
+
   const clearValues = (e) => {
+    var statusText1 = document.getElementById("HelloWorld");
     e.preventDefault();
     setFormValues(initialFormValues);
+    statusText1.innerHTML = initalStatusValue;
+   
   }
 
   return (
@@ -70,7 +76,7 @@ const EmployeeForm = () => {
       </div>
       <div className="form-group">
         <label htmlFor="email">Email:</label>
-        <input
+        <input className=''
           type="email"
           id="email"
           name="email"
@@ -78,12 +84,13 @@ const EmployeeForm = () => {
           onChange={handleChange}
         />
       </div>
-
-      <CreateButton props={formValues}/>
       <br></br>
-
-      <button onClick={(e) => clearValues(e)}>Clear</button>
-
+      <table align="right" width="100%">
+      <td align="left"><CreateButton props={formValues}/></td>
+      <td align="right"><button className='button' onClick={(e) => clearValues(e)}>Clear</button>
+      </td>
+      </table>
+      <br></br>
     </form>
   );
 };

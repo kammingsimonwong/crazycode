@@ -5,6 +5,28 @@
   }
   
   .form-group label {
-    width: 100px;
+    width: 220px;
     margin-right: 10px;
   }
+  .form-group input {
+   
+      width: 100%;
+      padding: 6px 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+      font-size: 20px
+    
+  }
+
+  .button {
+    background-color: #2b5970; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  

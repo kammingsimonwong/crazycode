@@ -1,0 +1,355 @@
+#receptive-widget-page{
+  font-family: sans-serif;
+}
+
+
+#receptive-widget-page .button--widget.button--close{
+  font-size: 14px;
+  border: 0 none;
+  background: transparent;
+  color: #B1B1B1;
+  outline: none;
+  float: right;
+  padding: 0 10px;
+  cursor: pointer;
+  &:hover{
+    opacity: .5;
+  }
+}
+
+#receptive-widget-page .page{
+  display: inline-block;
+  width: 100%;
+  margin: 32px 0;
+  height: 100%;
+}
+
+#receptive-widget-page .r-loader{
+  max-width: 70px;
+}
+
+#receptive-widget-page .r-loader__container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 1005;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+}
+
+#receptive-widget {
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width:0;
+  background-color: #f7f7f7;
+  transition: animation 0.4s ease-in-out;
+  box-shadow: 0 5px 40px rgba(0,0,0,.46);
+  display: block !important;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  overflow-y: hidden;
+}
+
+@media only screen
+  and (max-device-width: 1112px) {
+  #receptive-widget {
+    overflow-y: scroll;
+  }
+}
+
+#receptive-widget.buttonIs-right.visible {
+  right: 0;
+  opacity: 0;
+  width: 470px;
+  animation-direction: alternate-reverse;
+  animation: slideFromRight 0.5s 0s 1 alternate both;
+  -webkit-animation: slideFromRight 0.5s 0s 1 alternate both;
+  z-index: 9002;
+}
+
+#receptive-widget.buttonIs-left.visible {
+  left: 0px;
+  opacity: 0;
+  width: 470px;
+  animation-direction: alternate-reverse;
+  animation: slideFromLeft 0.5s 0s 1 alternate both;
+  -webkit-animation: slideFromLeft 0.5s 0s 1 alternate both;
+  z-index: 9002;
+}
+
+@media only screen and (max-width: 470px) {
+  #receptive-widget.buttonIs-right.visible {
+    width: 100%;
+    right: 2%;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  #receptive-widget.buttonIs-left.visible {
+    width: 100%;
+  }
+}
+
+#receptive-widget html{
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#receptive-overlay{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9000;
+  opacity: 0;
+  animation: fadeIn 0.5s 0s 1 alternate both;
+  -webkit-animation: fadeIn 0.5s 0s 1 alternate both;
+}
+
+#receptive-widget iframe {
+  width: 100%;
+  height: 99.6%;
+  border: 0 none;
+}
+
+#receptive-trigger {
+  position: fixed;
+  height: 43px;
+  opacity: 1 !important;
+  z-index: 9001;
+}
+
+#receptive-trigger.receptive-trigger--left{
+  transform-origin: center left;
+  left: 23px;
+  animation: slideIn-left 0.2s 0s 1 alternate forwards;
+  -webkit-animation: slideIn-left 0.2s 0s 1 alternate forwards;
+}
+
+#receptive-trigger.receptive-trigger--left button{
+  border-radius:   0 0 5px 5px ;
+}
+
+#receptive-trigger.receptive-trigger--right{
+  right: 0px;
+  animation: slideIn 0.2s 0s 1 alternate forwards;
+  -webkit-animation: slideIn 0.2s 0s 1 alternate forwards;
+}
+
+#receptive-trigger.receptive-trigger--top.receptive-trigger--left{
+  top: 10%;
+}
+#receptive-trigger.receptive-trigger--middle.receptive-trigger--left{
+  top: 45%;
+}
+#receptive-trigger.receptive-trigger--bottom.receptive-trigger--left{
+  bottom: 20%;
+}
+#receptive-trigger.receptive-trigger--top.receptive-trigger--right{
+  top: 10%;
+}
+#receptive-trigger.receptive-trigger--middle.receptive-trigger--right{
+  top: 45%;
+}
+#receptive-trigger.receptive-trigger--bottom.receptive-trigger--right{
+  bottom: 20%;
+}
+
+
+#receptive-trigger .receptive-notification{
+  background-color: #D85039;
+  color: #fff;
+  border-radius: 50%;
+  height: 17px;
+  width: 17px;
+  position: absolute;
+  right: -6px;
+  top: -8px;
+  visibility: hidden;
+  z-index: 1;
+  animation: pulse;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+}
+#receptive-trigger button {
+  border: none;
+  padding: 11px 18px 14px 18px;
+  border-radius: 3px 3px 0 0;
+  font-size: 15px;
+  color: #fff;
+  box-shadow: 0 -5px 9px rgba(0,0,0,.16);
+  cursor: pointer;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+#receptive-trigger .r-button__image{
+  margin: 0 12px 0 0;
+}
+
+#receptive-trigger button:hover,
+#receptive-trigger button:focus{
+  box-shadow: 0 -5px 20px rgba(0,0,0,.19);
+  outline: none;
+  background: #3e566f;
+}
+
+/* stylelint-disable */
+
+@-webkit-keyframes slideIn{
+  from{
+    opacity: 0;
+    transform: translate(145px,0%) rotate(270deg) translateY(-50%);
+    }
+
+  to{
+    opacity: 1;
+    transform: translate(50%,0%) rotate(270deg) translateY(-50%);
+  }
+}
+
+@keyframes slideIn{
+  from{
+    opacity: 0;
+    transform: translate(145px,0%) rotate(270deg) translateY(-50%);
+    }
+
+  to{
+    opacity: 1;
+    transform: translate(50%,0%) rotate(270deg) translateY(-50%);
+  }
+}
+
+
+
+
+@-webkit-keyframes slideIn-left{
+  from{
+    opacity: 0;
+      transform: rotate(270deg) translateX(-55%) translateY(-55%);
+    }
+
+  to{
+    opacity: 1;
+      transform: rotate(270deg) translateX(-55%) translateY(0%);
+  }
+}
+
+@keyframes slideIn-left{
+  from{
+    opacity: 0;
+      transform: rotate(270deg) translateX(-55%) translateY(-55%);
+    }
+
+  to{
+    opacity: 1;
+      transform: rotate(270deg) translateX(-55%) translateY(0%);
+  }
+}
+
+
+@-webkit-keyframes slideFromRight {
+  from{
+    transform: translate(-460px,0);
+  }
+  to{
+    transform: translate(0,0);
+  }
+}
+
+@keyframes slideFromRight {
+  from{
+  opacity: 0;
+  transform: translate(460px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+@-webkit-keyframes slideFromLeft {
+  from{
+    opacity: 0;
+    transform: translate(-460px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0px,0);
+  }
+}
+
+@keyframes slideFromLeft {
+  from{
+    opacity: 0;
+    transform: translate(-460px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0px,0);
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.15, 1.15);
+    transform: scale(1.15, 1.15);
+  }
+
+  to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.15, 1.15);
+    transform: scale(1.15, 1.15);
+  }
+
+  to {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* stylelint-enable */
